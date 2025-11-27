@@ -230,13 +230,4 @@ For issues, suggestions, or contributions:
 - Create an issue on GitHub
 - Join the RSG-Core Discord community
 
-## Credits
-
-
-## License
-
-This project is licensed under the GPL-3.0 License.
-
----
-
 **Enjoy your moonshining business! 🥃**
