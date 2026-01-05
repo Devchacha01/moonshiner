@@ -60,7 +60,7 @@ $(document).ready(function () {
                 selectOption();
             } else if (event.which == 8) { // Backspace
                 closeMenu();
-                $.post('https://${RESOURCE_NAME}/closeMenu', JSON.stringify({}));
+                $.post('https://rsg-moonshiner/closeMenu', JSON.stringify({}));
             }
         }
     });
@@ -106,7 +106,7 @@ function updateSelection() {
 function selectOption() {
     let opt = currentMenuOptions[selectedIndex];
     if (opt) {
-        $.post('https://${RESOURCE_NAME}/selectOption', JSON.stringify({
+        $.post('https://rsg-moonshiner/selectOption', JSON.stringify({
             index: selectedIndex + 1,
             data: opt
         }));
@@ -137,7 +137,7 @@ function startProgress(label, duration) {
         if (pct >= 100) {
             pct = 100;
             clearInterval(progressInterval);
-            $.post('https://${RESOURCE_NAME}/progressComplete', JSON.stringify({}));
+            $.post('https://rsg-moonshiner/progressComplete', JSON.stringify({}));
         }
 
         $("#progress-fill").css("width", pct + "%");
@@ -226,7 +226,7 @@ function endMiniGame(result) {
 
     $("#minigame-interface").addClass("hidden");
 
-    $.post('https://${RESOURCE_NAME}/miniGameResult', JSON.stringify({
+    $.post('https://rsg-moonshiner/miniGameResult', JSON.stringify({
         success: result // 'success', 'fail', 'perfect', 'cancel'
     }));
 }
