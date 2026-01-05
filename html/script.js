@@ -1,3 +1,4 @@
+const RESOURCE_NAME = GetParentResourceName();
 let currentMenuOptions = [];
 let selectedIndex = 0;
 let isMenuOpen = false;
@@ -59,7 +60,7 @@ $(document).ready(function () {
                 selectOption();
             } else if (event.which == 8) { // Backspace
                 closeMenu();
-                $.post('https://rsg-moonshiner/closeMenu', JSON.stringify({}));
+                $.post('https://${RESOURCE_NAME}/closeMenu', JSON.stringify({}));
             }
         }
     });
@@ -105,7 +106,7 @@ function updateSelection() {
 function selectOption() {
     let opt = currentMenuOptions[selectedIndex];
     if (opt) {
-        $.post('https://rsg-moonshiner/selectOption', JSON.stringify({
+        $.post('https://${RESOURCE_NAME}/selectOption', JSON.stringify({
             index: selectedIndex + 1,
             data: opt
         }));
@@ -136,7 +137,7 @@ function startProgress(label, duration) {
         if (pct >= 100) {
             pct = 100;
             clearInterval(progressInterval);
-            $.post('https://rsg-moonshiner/progressComplete', JSON.stringify({}));
+            $.post('https://${RESOURCE_NAME}/progressComplete', JSON.stringify({}));
         }
 
         $("#progress-fill").css("width", pct + "%");
@@ -225,7 +226,7 @@ function endMiniGame(result) {
 
     $("#minigame-interface").addClass("hidden");
 
-    $.post('https://rsg-moonshiner/miniGameResult', JSON.stringify({
+    $.post('https://${RESOURCE_NAME}/miniGameResult', JSON.stringify({
         success: result // 'success', 'fail', 'perfect', 'cancel'
     }));
 }
