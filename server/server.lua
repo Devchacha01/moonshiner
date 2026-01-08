@@ -315,12 +315,10 @@ RegisterNetEvent('rsg-moonshiner:server:getCoordsId', function(x, y, z)
                 -- so tonumber is safer.
                 local dist = #(pCoords - vector3(tonumber(v.xpos), tonumber(v.ypos), tonumber(v.zpos)))
                 
-                -- 2.0 tolerance matches the client's original check, but now we do it here.
-                if dist <= 2.0 then
+                -- Increased tolerance to 10.0 as requested by user
+                if dist <= 10.0 then
                      TriggerClientEvent('rsg-moonshiner:client:getId', src, x, y, z, v.object, v.xpos, v.ypos, v.zpos, v.id)
                      found = true
-                     -- Assuming props aren't stacked on top of each other, we can break after finding one?
-                     -- But let's check all just in case 2 are very close.
                 end
             end
             
