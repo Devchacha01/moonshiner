@@ -34,7 +34,7 @@ A comprehensive moonshiner script for RedM servers using RSG-Core framework. Cra
 - [rsg-target](https://github.com/Rexshack-RedM/rsg-target)
 
 ## Installation
-
+rename the folder as rsg-moonshiner
 1. **Download and Extract**
    - Download the `rsg-moonshiner` folder
    - Place it in your server's `resources` folder
